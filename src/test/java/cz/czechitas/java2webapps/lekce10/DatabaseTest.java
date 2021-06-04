@@ -42,6 +42,17 @@ public class DatabaseTest {
 
   @Test
   @Transactional
+  void mujTest() {
+    Student student = studentRepository.getOne(1);
+    logger.debug("Našel jsem studenta: {}", student);
+    logger.debug("Chodí do třídy: {}", student.getTrida());
+    for (Rodic rodic: student.getRodice()) {
+      logger.debug("Jeho rodič: {}", rodic);
+    }
+  }
+
+  @Test
+  @Transactional
   void testStudent() {
     Student student = studentRepository.getOne(1);
     logger.debug("Student s ID=1: {}", student);

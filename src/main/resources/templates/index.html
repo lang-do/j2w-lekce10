@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<head>
+    <meta charset="UTF-8">
+    <title>Škola</title>
+</head>
+<body>
+<h1>Seznam tříd</h1>
+<div th:each="trida: ${listTrid}">
+    <a th:href="@{/(id=${trida.id})}" th:text="${trida.nazev}">Název třídy</a>
+</div>
+</body>
+</html>

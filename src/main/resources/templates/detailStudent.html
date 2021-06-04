@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+<div>
+    <div th:each="deti: ${student}">
+        <h1 th:text="${deti.toString()}">Jméno studenta</h1>
+        <a th:href="@{/(id=${deti.trida.id})}" th:text="${deti.trida}">nazev tridy</a>
+    </div>
+    <div>
+        <div th:each="rodic: ${listRodicu}">
+            <div th:text="${rodic.toString()}">rodic jmeno</div>
+            <div th:text="${rodic.email}">email</div>
+            <div th:text="${rodic.telefon}">telefon</div>
+        </div>
+    </div>
+</div>
+<nav>
+    <a href="/">◂ zpět na seznam</a>
+</nav>
+</body>
+</html>
