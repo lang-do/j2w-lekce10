@@ -19,7 +19,7 @@ public class SkolaController {
     @GetMapping("/")
     public ModelAndView index(@PageableDefault(sort = {"nazev"}) Pageable pageable) {
         return new ModelAndView("index")
-                .addObject("listTrid", skolaService.listTrid(Pageable.unpaged()));
+                .addObject("listTrid", skolaService.listTrid());
     }
 
     @GetMapping(path = "/", params = "id")

@@ -12,8 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-
 @Service
 public class SkolaService {
     private final TridaRepository tridaRepository;
@@ -29,24 +27,24 @@ public class SkolaService {
         this.rodicRepository = rodicRepository;
     }
 
-    public Page<Trida> listTrid(Pageable pageable) {
+    public Page<Trida> listTrid() {
         return tridaRepository.findAll(Pageable.unpaged());
     }
 
-    public Page<Trida> findTridaById(short id) {
-        return tridaRepository.findById(id, Pageable.unpaged());
+    public Trida findTridaById(short id) {
+        return tridaRepository.findById(id).get();
     }
 
     public Page<Rodic> listRodicuStudenta(Integer id) {
-        return rodicRepository.findByDetiIdOrderByJmeno(id,Pageable.unpaged());
+        return rodicRepository.findByDetiIdOrderByJmenoAscPrijmeniAsc(id,Pageable.unpaged());
     }
 
     public Page<Student> listStudentuTridy(short id) {
         return studentRepository.findStudentByTridaIdOrderByPrijmeni(id, Pageable.unpaged());
     }
 
-    public Page<Student> findById(Integer id) {
-        return studentRepository.findById(id, Pageable.unpaged());
+    public Student findById(Integer id) {
+        return studentRepository.findById(id).get();
     }
 
 }

@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface RodicRepository extends JpaRepository<Rodic, Integer> {
-    Page<Rodic> findByDetiIdOrderByJmeno(Integer id, Pageable pageable);
+    Page<Rodic> findByDetiIdOrderByJmenoAscPrijmeniAsc(Integer id, Pageable pageable);
 }
